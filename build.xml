@@ -2,8 +2,8 @@
 <project name="alterjs.com" default="build">
  <!-- By default, we assume all tools to be on the $PATH -->
  <property name="toolsdir" value=""/>
- <property name="destination" value="${basedir}/build"/>
- <property name="origin" value="${basedir}"/>
+ <property name="destination" value="build"/>
+ <property name="origin" value=""/>
  <property environment="env"/>
  <property name="installpath" value="/var/www/alterjs.com"/>
 
@@ -28,7 +28,7 @@
 
 <target name="jekyll"
         description="Builds the site using Jekyll">
-    <exec executable="jekyll">
+    <exec executable="jekyll" dir=".">
         <arg value="build"/>
         <arg value="--no-auto"/>
     </exec>
@@ -48,7 +48,7 @@
 	<mkdir dir="${installpath}"/>
 
 	<copy todir="${installpath}">
-	  <fileset dir="${origin}/_site">
+	  <fileset dir="_site">
 	    <include name="**/*"/>
 	  </fileset>
 	</copy>
