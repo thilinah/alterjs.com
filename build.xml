@@ -30,7 +30,6 @@
         description="Builds the site using Jekyll">
     <exec executable="jekyll" dir=".">
         <arg value="build"/>
-        <arg value="--no-auto"/>
     </exec>
 </target>
 
